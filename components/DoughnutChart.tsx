@@ -2,17 +2,20 @@
 
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2'; 
-import {Chart, ArcElement} from 'chart.js'
+import {Chart, ArcElement} from 'chart.js';
 
 Chart.register(ArcElement);
 
 const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
+    const accountNames = accounts.map((a) => a.name);
+    const balances = accounts.map((a) => a.currentBalance);
+
     const data = {
-        labels: ["Bank 1", "Bank 2", "Bank 3"], 
+        labels: accountNames,
         datasets: [
             {
                 label: "Banks",
-                data: [1250,2500,3750],
+                data: balances,
                 backgroundColor: ["#0747b6", "#2265b8", "#2f91fa"],
 
             }

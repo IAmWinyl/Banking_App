@@ -25,10 +25,8 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
     }, [user]);
 
     const config: PlaidLinkOptions = {
-        onSuccess: onSuccess,
-        // onExit: (err, metadata) => {},
-        // onEvent: (eventName, metadata) => {},
-        token: token,
+        onSuccess,
+        token,
     };
 
     const { open, exit, ready } = usePlaidLink(config);
